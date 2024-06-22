@@ -4,7 +4,9 @@ using namespace std;
 
 // ret: min num of bills to withdraw n
 int withdraw(int n, int best, int *dp) {
-  int bs[5] = {1, 5, 10, 20, 100};
+  // int bs[5] = {1, 5, 10, 20, 100};
+  // Greedy: take bill with greatest nominal value
+  int bs[5] = {100, 20, 10, 5, 1};
 
   if (n == 0) {
     return 0;
@@ -21,7 +23,7 @@ int withdraw(int n, int best, int *dp) {
 
     int diff = n - b;
 
-    dp[n] = min(withdraw(diff, best, dp) + 1, best);
+    dp[n] = min(withdraw(diff, best, dp) + 1, dp[n]);
     // printf("dp[%d] in loop: %d\n", n, dp[n]);
   }
 
