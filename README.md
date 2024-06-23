@@ -7,7 +7,7 @@ My attempts at some Codeforces problems.
 ### Domino Piling
 
 <div>
-  <img source="./assets/domino-piling.png" width="400" />
+  <img src="./assets/domino-piling.png" width="400" />
 </div>
 
 Draw to better visualize. Just `n * m / 2` , where 2 is the domino of size 2 x 1. If use int in C++, will round up/down or just floor() in Python to take whole num instead of float which provides the num of dominos that can perfectly fit the M x N matrix excluding the remainder.
