@@ -18,6 +18,10 @@ Input size is 1≤n≤10^9 means that cannot use DP due to space complexity of o
 
 This problem is similar to Coin Change, but coin change must use DP as Greedy does not always guarantee the most optimal solution.
 
+### Vector
+
+Consider vectors a (aX, aY, aZ) and b (bX, bY, bZ), a + b = (aX+bX, aY+bY, aZ+bZ).
+
 ## Useful Resources
 
 Great books:
