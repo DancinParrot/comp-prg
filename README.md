@@ -1,6 +1,16 @@
 # Codeforces Stuff
 
-My attempts at some Codeforces problems. 
+My attempts at some Codeforces problems.
+
+## Compilation
+
+```bash
+g++ -std=c++11 -O2 -Wall -pedantic -Wconversion -Wshift-
+overflow=2 -Wduplicated-cond -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTI
+FY_SOURCE=2 -fsanitize=address 1999C.cpp -o build/1999C
+```
+
+[Catching silly mistakes with GCC](https://codeforces.com/blog/entry/15547)
 
 ## Solutions
 
@@ -25,5 +35,6 @@ Consider vectors a (aX, aY, aZ) and b (bX, bY, bZ), a + b = (aX+bX, aY+bY, aZ+bZ
 ## Useful Resources
 
 Great books:
+
 - [Competitive Programmer’s Handbook, Antti Laaksonen](https://cses.fi/book/book.pdf)
 - [Competitive Programming 3 - Book 1, Steven Halim & Felix Halim](https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp1.pdf)
