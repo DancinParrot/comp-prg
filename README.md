@@ -32,6 +32,12 @@ This problem is similar to Coin Change, but coin change must use DP as Greedy do
 
 Consider vectors a (aX, aY, aZ) and b (bX, bY, bZ), a + b = (aX+bX, aY+bY, aZ+bZ).
 
+### Effective Approach
+
+Instead of following the problem statement to perform linear search, use hashmap instead to allow O(1) lookup of values. Linear search is O(n) and since upper bound for n and m is 1e5, may need to perform 1e10 operations leading to a TLE verdict. For reverse search used by Petya, just take difference of n (length of array) and index of b (target) with the formula, $p=\left| i_{b}-n \right| + 1$.
+
+Hence, no need to perform linear search for every $b_{i}$ in m array with worst case O(n) as need to populate hashmap.
+
 ## Useful Resources
 
 Great books:
