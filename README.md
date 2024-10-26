@@ -5,9 +5,7 @@ My attempts at some Codeforces problems.
 ## Compilation
 
 ```bash
-g++ -std=c++11 -O2 -Wall -pedantic -Wconversion -Wshift-
-overflow=2 -Wduplicated-cond -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTI
-FY_SOURCE=2 -fsanitize=address 1999C.cpp -o build/1999C
+g++ -std=c++11 -O2 -Wall -pedantic -Wconversion -Wshift-overflow=2 -Wduplicated-cond -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address 1999C.cpp -o build/1999C
 ```
 
 [Catching silly mistakes with GCC](https://codeforces.com/blog/entry/15547)
