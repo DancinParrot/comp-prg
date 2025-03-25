@@ -36,6 +36,10 @@ Instead of following the problem statement to perform linear search, use hashmap
 
 Hence, no need to perform linear search for every $b_{i}$ in m array with worst case O(n) as need to populate hashmap.
 
+### 102B: Sum of Digits
+Take note that the input $n$ upper limit is $10^{100000}\gt 2^{63}-1 \text{ (the limit of long long)}$. Hence, take the input as string and loop through it to obtain individual digits as chars. Since, ASCII digits start from 48 or `'0'`, convert char to int using `int i = '1' - '0';` or `int i = (int)'1' - 48;`. Then, sum up the individual digits. The summation process is to be repeated until the sum contains only one digit.
+
+
 ## Useful Resources
 
 Great books:
