@@ -1,3 +1,6 @@
+// Direct simulation with o(n) will not work due to input size of 10^9
+// In worst case scenario, both Gellyfish and Flower could have HP and knight of
+// 10^9, and subtracting one by one will cause TLE.
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,6 +14,7 @@ void solve() {
     ll a, b, c, d;
     cin >> a >> b >> c >> d;
 
+    // O(1)
     // attack the minimum, either health of knight
     // if knight dies, cannot attack, so automatic lost
     if (min(a, c) >= min(b, d)) {
