@@ -10,6 +10,42 @@ g++ -std=c++11 -O2 -Wall -pedantic -Wconversion -Wshift-overflow=2 -Wduplicated-
 
 [Catching silly mistakes with GCC](https://codeforces.com/blog/entry/15547)
 
+## Debugging
+
+A debugging template made by Anshul_Johri has been added to this repo to ease debugging efforts, links to [GitHub](https://github.com/Anshul-Johri-1/Debug-Template) repo and [Codeforces Blog](https://codeforces.com/blog/entry/125435). 
+
+To use the template, include `debug.h` in solution and use `debug(var1, var2, ...)` to print out values of variables with different types, works with all types including primitives, derived, and user-defined.
+
+For user-defined data types, a function named `print(SomeStruct s)` is required before using `debug`:
+```cpp
+struct Point
+{
+    int x{};
+    int y{};
+};
+void print(Point ob)
+{
+    cerr << "(" << ob.x << "," << ob.y << ")";
+}
+
+// debug(ob);
+```
+
+For arrays decayed into pointers, use `debugArr(arr, n)` where n is size of array. A decayed array occurs when an array is passed to a function in which the array will then be converted to a pointer to the first element of the array.
+
+> [!TIP]
+> `debug()` statements do not need to be removed during submission to Codeforces, thanks to the `ONLINE_JUDGE` macro which will ignore all debug statements.
+
+Ensure the following is included in the solution file, which will allow Codeforces to ignore debug statements and imports.
+```cpp
+#ifndef ONLINE_JUDGE
+#include "template.cpp"
+#else
+#define debug(...)
+#define debugArr(...)
+#endif
+```
+
 ## Solutions
 
 ### Domino Piling
