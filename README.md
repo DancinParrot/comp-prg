@@ -93,9 +93,13 @@ The implementation is quite trivial since it involves only `std::map` for the so
 
 Originally, I passed both the `std::vector` and `std::string` by value, meaning copies of the original containers will be created which is a linear time operation. It was this exact bug resulted in a TLE, and I simply did not think of it during my debugging efforts.
 
-Time complexity analysis: $o(n\ log\ n)$, where `n = nums.size()`
+Time complexity analysis: $O(n\ log\ n)$, where `n = nums.size()`
 
-`std::map` methods such as access, insert, and count are of logarithmic complexity, O(log n). By looping over the `nums` array and inserting elements, the time complexity of `solve()` will be O(n log n). However, with passing by value for `vector<int> nums` and `string s`, it would be $o(n^2m\ log\ n)$ where `n = nums.size()` and `m = s.size()` were traversed with each execution of `solve()`. Hence, especially since, `nums` and `s` combined can be large values, it's best to pass them by reference instead.
+`std::map` methods such as access, insert, and count are of logarithmic complexity, $O(log\ n)$. By linearly traversing the `nums` array for `std::map` to `count()` and `insert` elements, the time complexity of `solve()` will be worst case, $O(n\ log\ n)$, despite the addition of a $O(n)$ for loop.
+
+In the above scenario, $O(n)$ in $O(n) + O(n\ log\ n)$ will be ignored as for larger values for $n$, $O(n)$ will matter less. Plot $x$, $x\ log\ x$ and $x + x\ log\ x$ in Desmos and the difference is apparent at extreme values. Also, see [here](https://www.reddit.com/r/learnprogramming/comments/12iafl9/comment/jfsw5cl/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) for more info.
+
+However, if passing by value is used for `vector<int> nums` and `string s` in `solve()`, it will result in $O(n) + O(n\ log\ n)$. This is due to the linear traversal of `nums` and `s` to create copies to pass to `solve()`. Also, since `solve()` is called `m` times for each test case, the actual time complexity is $O(n\times m) + O(m\times n\ log\ n)$. In a worst-case scenario where `n = m` as they have the same upper bounds, the complexity might be $O(n^2) + O(n^2\ log\ n)$. Hence, it's best to pass by reference for large arrays.
 
 ## Useful Resources
 
