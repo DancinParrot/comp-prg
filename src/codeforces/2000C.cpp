@@ -15,7 +15,15 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
 
-void solve(vi nums, string s) {
+/* Pass by reference to avoid copying of nums and string which is linear time.
+ * Careful of pass by reference, if modified, will change the referenced,
+ * original variable
+ */
+void solve(vi &nums, string &s) {
+  if (nums.size() != s.size()) {
+    cout << "NO\n";
+    return;
+  }
 
   map<char, int> m1;
   map<int, char> m2;
@@ -52,11 +60,7 @@ int main() {
     cin >> m;
     for (size_t i = 0; i < m; i++) {
       cin >> s;
-      if (nums.size() != s.size()) {
-        cout << "NO\n";
-      } else {
-        solve(nums, s);
-      }
+      solve(nums, s);
     }
   }
   return 0;
