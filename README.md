@@ -52,7 +52,7 @@ Ensure the following is included in the solution file, which will allow Codeforc
 
 This section contains various tips and tricks to speed up coding when attempting contests.
 
-To insert items into a vector, instead of:
+1. To insert items into a vector, instead of:
 
 ```cpp
 for (size_t i = 0, i < nums.size(), i++) {
@@ -68,6 +68,18 @@ Why not?
 for (auto &i : nums) {
   cin >> &i;
 }
+```
+
+2. DO NOT use `size_t` for reverse iteration. By subtracting `size_t` to traverse a vector in the reverse order, when `size_t` is subtracted to below 0, it will underflow and produce an extremely large number as `size_t` is unsigned:
+
+```cpp
+string s;
+cin >> s;
+
+for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
+  // ...
+}
+
 ```
 
 ## Solutions
