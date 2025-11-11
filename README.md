@@ -48,6 +48,28 @@ Ensure the following is included in the solution file, which will allow Codeforc
 #endif
 ```
 
+## Tip and Tricks
+
+This section contains various tips and tricks to speed up coding when attempting contests.
+
+To insert items into a vector, instead of:
+
+```cpp
+for (size_t i = 0, i < nums.size(), i++) {
+  int x;
+  cin >> x;
+  nums.push_back(x);
+}
+```
+
+Why not?
+
+```cpp
+for (auto &i : nums) {
+  cin >> &i;
+}
+```
+
 ## Solutions
 
 ### Domino Piling
