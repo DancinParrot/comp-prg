@@ -137,13 +137,13 @@ However, if passing by value is used for `vector<int> nums` and `string s` in `s
 
 ### 1848A: Vika and Her Friends
 
-This problem is quite tricky for a Div 2A. The questionable command of the English language demonstrated in the problem description further complicates everything. Nevertheless, the actual solution for the problem is very short and sweet.
+This problem is quite tricky for a Div 2A. The problem description is written in such a way that is simply, hard to understand, which further complicates everything. Nevertheless, the actual solution for the problem is very short and sweet.
 
 <div>
   <img src="./assets/1848A.jpg" width="400" />
 </div>
 
-The `n * m` grid can be represented as a black and white chessboard with `n` rows and `m` columns. This will help immensely in understanding and solving the problem as seen above. The solution basically involves checking whether Vicky and any one of her friends are located within cells of the same color. If so, they will eventually meet. Otherwise, they will not.
+The `n * m` grid can be represented as a black and white chessboard with `n` rows and `m` columns. This will help immensely in understanding and solving the problem as seen above. The solution basically involves checking whether Vicky and any one of her friends are located within cells of the same color. If so, they will eventually meet. Otherwise, they will not. Refer to [this](https://cloud.tencent.com/developer/article/2320697) article or [a more lengthy one](https://blog.zhenbo.pro/codeforces-885a-vika-and-her-friends-1848a-solution/) for more explanation.
 
 ## Useful Resources
 
