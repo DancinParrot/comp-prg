@@ -135,6 +135,16 @@ In the above scenario, $O(n)$ in $O(n) + O(n\ log\ n)$ will be ignored as for la
 
 However, if passing by value is used for `vector<int> nums` and `string s` in `solve()`, it will result in $O(n) + O(n\ log\ n)$. This is due to the linear traversal of `nums` and `s` to create copies to pass to `solve()`. Also, since `solve()` is called `m` times for each test case, the actual time complexity is $O(n\times m) + O(m\times n\ log\ n)$. In a worst-case scenario where `n = m` as they have the same upper bounds, the complexity might be $O(n^2) + O(n^2\ log\ n)$. Hence, it's best to pass by reference for large arrays.
 
+### 1848A: Vika and Her Friends
+
+This problem is quite tricky for a Div 2A. The questionable command of the English language demonstrated in the problem description further complicates everything. Nevertheless, the actual solution for the problem is very short and sweet.
+
+<div>
+  <img src="./assets/1848A.jpg" width="400" />
+</div>
+
+The `n * m` grid can be represented as a black and white chessboard with `n` rows and `m` columns. This will help immensely in understanding and solving the problem as seen above. The solution basically involves checking whether Vicky and any one of her friends are located within cells of the same color. If so, they will eventually meet. Otherwise, they will not.
+
 ## Useful Resources
 
 Great books:
