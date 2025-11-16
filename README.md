@@ -145,6 +145,18 @@ This problem is quite tricky for a Div 2A. The problem description is written in
 
 The `n * m` grid can be represented as a black and white chessboard with `n` rows and `m` columns. This will help immensely in understanding and solving the problem as seen above. The solution basically involves checking whether Vicky and any one of her friends are located within cells of the same color. If so, they will eventually meet. Otherwise, they will not. Refer to [this](https://cloud.tencent.com/developer/article/2320697) article or [a more lengthy one](https://blog.zhenbo.pro/codeforces-885a-vika-and-her-friends-1848a-solution/) for more explanation.
 
+### 2169B: Drifting Away
+
+Got screwed over by this problem, but the solution is surprisingly, very simple. At first, my solution involves pushing symbols to the stack and make sure they look for infinite matches like `><`, `>*<`, and `<*<`. For the last combination, the correct solution is to simply replace `*` with `>` or vice versa if it's `>*>` to achieve `><` which causes Monocarp to row infinitely. Hence, a simple condition is more than enough to ensure the input string is clear of such infinite combinations:
+```cpp
+if ((s[i] != '<') && (s[i + 1] != '>')) {
+  cout << -1 << '\n';
+  break;
+}
+```
+
+Substrings that don't satisfy the above conditions are `><`, `*<` (can be turned into `><`), `>*` (can be turned into `><`) and lastly, `**` (can also be turned into `><`). `<>`, will never result in infinite drift, so just take the max count of `<`, or `>`, whichever appears more frequent and sum it up with count of `*`. Alternatively, just `s.size() - min(count(s.begin(), s.end(), '<'), count(s.begin(), s.end(), '>'))`.
+
 ## Useful Resources
 
 Great books:
