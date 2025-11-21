@@ -1,6 +1,6 @@
 # Codeforces Stuff
 
-My attempts at some Codeforces problems.
+My attempts at some Codeforces problems. If you'd like to see some of my thought process (Warning! It's super messy), just head to [thoughts.md](./thoughts.md).
 
 ## Compilation
 
