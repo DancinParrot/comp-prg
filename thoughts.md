@@ -2,6 +2,23 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 2093B: Expensive Number
+
+00:00 13700 Start from right side, find a non-zero digit. Then, remove leading numbers to the left. Finally, remove trailing zeros to the right.
+
+13700
+  ^
+
+Remove leading numbers:
+00700
+
+Remove trailing zeros:
+007
+
+Cost = 7 / (0 + 0 + 7) = 1
+
+Since input is super huge, 10^100, use a string to store input. Then, just loop from right side.
+
 ## 1543B: Customising the Track
 
 00:00 How you get 4 got 2nd test case when 1 + 1 = 2, turns out cause sum two times. Take note j = i + 1

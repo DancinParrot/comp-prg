@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <cstdio>
 
 #ifndef ONLINE_JUDGE
 #include "debug.h"
@@ -12,13 +11,14 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define REP(i, a, b) for (size_t i = a; i < b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
 
 using namespace std;
 
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> pi;
+const int INF = 1e9;
 
 /*
  * This function checks to make sure index is within bounds of array.
@@ -28,43 +28,40 @@ typedef pair<int, int> pi;
  */
 bool in(int n, int i) { return i >= 0 && i < n; }
 
-/*
- * Find rightmost non-zero digit, and set everything non-zero on the left to
- * zero. The remaining zeros can then be removed for cost to be minimal, or cost
- * = 1.
- */
-void solve(string &s) {
-  int c = 0, skipped = 0;
+void solve() {
+  string s;
+  cin >> s;
 
-  // start counting after meeting rightmost non-zero digit
-  bool right_digit_met = false;
+  reverse(s.begin(), s.end());
 
-  // 00731, when 7, right_digit_met = true, so when 3 count + 1, and when 1,
-  // count + 1
-  for (int i = s.size() - 1; i >= 0; i--) {
-    debug(s[i]);
-    if ((s[i] != '0') && !right_digit_met) {
-      right_digit_met = true;
-    } else if ((s[i] != '0') && right_digit_met) {
+  debug(s);
+  int j = -1;
+  int c = 0;
+  REP(i, 0, s.size()) {
+    if ((j == -1) && (s[i] - '0' > 0)) {
+      j = i;
+      break;
+    }
+    c++;
+  }
+
+  REP(i, j + 1, s.size()) {
+    if (s[i] - '0' > 0) {
       c++;
-    } else if ((s[i] == '0') && !right_digit_met) {
-      skipped++;
     }
   }
 
-  cout << c + skipped << '\n';
+  cout << c << '\n';
 }
 
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int n;
-  cin >> n;
-  while (n--) {
-    string s;
-    cin >> s;
-    solve(s);
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
   }
   return 0;
 }
