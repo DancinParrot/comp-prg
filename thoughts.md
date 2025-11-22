@@ -2,6 +2,58 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 1705B: Mark the Dust Sweeper
+
+00:00 Goal is to move all dust to nth room. For example, 2 0 0, move 2 to last, so 0 0 2. 1-indexed used in test case, when i = 1 and j = 2:
+
+2 0 0\
+i j
+
+Set ai = ai - 1, aj = aj + 1, become: 1 1 0
+
+Afterwards, i = 1, j = 3 to become: 0 1 1
+
+Finally, i = 2 and j = 3 to become: 0 0 2
+
+00:10 Need to sort? sort(0 2 0 2 0) = [0, 0, 0, 2, 2]. Cannot sort as will change order which changes number of operations.
+
+00:15 Loop through and pick subarray such that [i, j=i+1], 
+
+0 2 0 2 0\
+0 0 2 2 0 cost = 2 as set i--, then i-- again\
+0 0 2 0 2 cost = 4\
+0 0 0 2 2 cost = 6\
+0 0 0 0 4 cost = 8\
+
+00:20 Make every 0 at least 1? Then from first 1, move to last element
+
+00:25 Fill 0s between last and some element to satisfy condition of i < j and ai, ai+1, ..., aj-1 > 0. The some element should be a nonzero digit from left. Loop from left, find a non-zero digit and set that as the starting point:
+
+0 2 0 2 0\
+  i\
+
+As seen above, i = 2 for 1-indexed will be starting point
+
+00:30 From starting point, make [i,j] such that nums[j] == 0, to fill 0s with >= 1. When there's no 0, then from starting point, choose [i, j] where j = last element, and slowly move all values to the last element.
+
+For example: 2 0 3 0 4 6
+
+1 1 2 1 4 6 - after filling in gaps, cost = 2 operations\
+0 1 2 1 4 7 - cost = 1\
+0 0 2 1 4 8 - cost = 1\
+0 0 1 1 4 9 - cost = 1\
+0 0 0 1 4 10 - cost = 1\
+0 0 0 0 4 11 - cost = 1\
+0 0 0 0 3 12 - cost = 1\
+0 0 0 0 2 13 - cost = 1\
+0 0 0 0 1 14 - cost = 1\
+0 0 0 0 0 15 - cost = 1\
+Total costs = 2 + 9 = 11
+
+00:40 Again, int overflow cause 10^9+10^9 > int max of 10^9, I should just use ll all the time instead of int.
+
+00:50 Got WA, expected 0 but got some random large number, turns out, another case where edge case not handled correct. Since every element, `a` in array has a range of 0 <= a <= 10^9, if all elements = 0, start = -1, so cause out of bounds.
+
 ## 1771A: Hossam and Combinatorics
 
 00:00 sort(nums) and pick largest and smallest via last and first elements?
