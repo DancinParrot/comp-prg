@@ -2,6 +2,52 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 1771A: Hossam and Combinatorics
+
+00:00 sort(nums) and pick largest and smallest via last and first elements?
+\
+Consider this array with duplicate elements, then how?
+nums = [2, 2, 3, 7, 8, 10]
+
+|2-10| = 8
+|10-2| = 8
+
+Repeat another time as got two elements with same value of 2.
+|2-10| = 8
+|10-2| = 8
+
+So, 4 interesting pairs. 1 (largest) * 2 * 2 (smallest duplicates)
+
+What if: nums = [2, 2, 3, 7, 8, 10, 10]
+
+|2-10| = 8
+|10-2| = 8
+
+|2-10| = 8
+|10-2| = 8
+
+|10-2| = 8
+|2-10| = 8
+
+|10-2| = 8
+|2-10| = 8
+
+So, 8 interesting pairs. As got two 2s and two 10s. 2 (largest) * 2 * (2 smallest dups) = 8
+
+00:10 Just sort(nums), then two points from front and back. If a(i+1) and a(j+1) == prev ai and aj
+\
+00:15 For each largest duplicate, there will be 2 * smallest duplicates
+
+What if, nums = [1, 2, 3, 6, 8]
+
+Going by the formula, 1 (largest) * 2 * 1 (smallest) = 2
+
+00:50 Got int overflow, so change everything to ll, but ans still wrong. Used a python script to gen n = 10^5 with each a = 10^5, no int overflow but ans wrong as prod is same when a = 10^5 and a = 35565 which is impossible.
+\
+00:51 What if all elements have same value, then there's no sm and lg, but they still satisfy the condition of an interesting pair, it's just that diff = 0.
+\
+01:00 No clue, had to see editorial. I thought when all equals, should be n * 2 * n. Turns out, my ans is correct, just that the edge case was not handled properly when |ai - aj| = 0, for this case, ans = n(n-1). My ans missed out -1, why -1, cause exclude the last element from the rest as the rest will be the `sm`.
+
 ## 2093B: Expensive Number
 
 00:00 13700 Start from right side, find a non-zero digit. Then, remove leading numbers to the left. Finally, remove trailing zeros to the right.
