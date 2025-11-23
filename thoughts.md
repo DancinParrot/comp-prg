@@ -2,6 +2,22 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 2164B: Even Modulo Pair
+
+00:10 Prime numbers? If even % even will be even, if and only if they're not multiples. Like 6 is not a multiple of 8, so 8 % 6 = 2, but 4 is a multiple of 8 so 8 % 4 = 0.
+
+00:15 I don't thin can do O(n^2), n can be as big as 10^5, so (10^5)^2 = 10^10, more than 10^8 ops per second
+
+00:20 Recall theory behind modulo. 17 % 6 = 17 - 6 - 6 = 5. Hence, 7 % 5 = 7 - 5. even % even, if 0 also even. Hence, if even then js break and return, otherwise keeping checking if any odd pairs meet condition.
+
+00:25 Notice diff between two adjacent primes in list of primes are always even? So check, if this exist. Hence, check if at least two evens or primes. What about 117 and 1117 though, they are not primes but still valid
+
+00:30 Decided to just implement a bruteforce, O(n^2) solution. Got WA on test 2, cause of two problems: first, j = i + 1 so as to not check the same element as i; second, check either even or remainder is even. It got accepted but why though cause the complexity shouldn't fit within the time limit of 1 second given that n can be 2*10^5?
+
+00:35 This type of problem requires bounding the naive solution. Similar to 2167D, only requires primes until 53, essentially bounding solution to O(53n) or O(n). How bounding works in this problem?
+
+Since the given sequence is **strictly increasing**, which is different from non-decreasing as there will be no same elements, so a1 < a2 < a3 < a4 < ... < an. For `x < y`, if `x` and `y` even, then remainder confirm even. TBC...
+
 ## 1705B: Mark the Dust Sweeper
 
 00:00 Goal is to move all dust to nth room. For example, 2 0 0, move 2 to last, so 0 0 2. 1-indexed used in test case, when i = 1 and j = 2:
