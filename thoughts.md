@@ -2,6 +2,67 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 1609A: Divide and Multiply
+
+00:00 For an array with all even numbers, the solution is to juts pick the largest and smallest element every step until the smallest element is 1.
+
+To note:
+- Is array sorted? Since n <= 15, just sort the array.
+- Increasing? Non-decreasing? Array seems to be non-decreasing
+
+For instance, if sequence is all even: 6 4 2
+
+1. Pick aj = 6 = 6 * 2 = 12, ai = 2 = 2 / 2 = 1 to form: 12 4 1
+2. Pick aj = 12, ai = 4 = 4 / 2 = 2 to form: 24 2 1
+3. Pick aj = 24, ai = 2 to form: 48 1 1
+
+Ans = sum(arr) = 48 + 1 + 1 = 50
+
+How about an array with both even and odd numbers: 1 2 3 4 5?
+
+Pick largest * 2 and smallest that is divisible by 2,
+
+1. aj = 5 * 2 = 10, smallest = 2 / 2 = 1 to form: 1 1 3 4 10
+2. aj = 10 * 2 = 20, smallest = 4/2 = 2 to form: 1 1 3 2 20
+3. aj = 20, smallest = 2/2 = 1 to form: 1 1 3 1 40
+4. aj = 40, smallest = 3/2
+
+Ans = 1 + 1 + 1 + 3 + 40 =46
+
+What if, pick odd first?
+
+1. aj = 3 * 2, ai = 2 / 2 = 1 to form 1 1 6 4 5
+2. aj = 5 * 2, ai = 4 to form 1 1 6 2 10
+Now that all even, pick largest
+3. aj = 10 * 2, ai = 2 to form 1 1 6 1 20
+4. aj = 20 * 2, ai = 6 to form 1 1 3 1 40
+
+So same ans as above, we should make all odd even before picking largest and smallest. If not there may exists some combination in the odd numbers that would allow for a greater sum.
+
+If n = 1, with 1 element, there's nth to do.
+
+00:10 Loop until no evens left
+
+00:15 For array: 2 3 4, how?
+
+Pick aj = 4, ai = 2 to form 1 3 8
+
+Or
+
+Pick aj = 3, ai = 2 to form 1 6 4
+
+Pick aj = 6, ai = 4 to form 1 12 2
+
+Pick aj = 12, ai = 2 to form 1 24 1
+
+Thus, ans = 1 + 24 + 1 = 26
+
+00:25 How to know when to stop looping? Cause need loop until all evens have been exhausted. Cannot check if a = 1 then add to invalid array, cause let's say originally a = 3, make into even a = 6, if a / 2 = 3 will never be 1.
+
+Keep index of all even elements? Every iteration, check if any of them is even, if all odd, stop the loop
+
+00:35 TLE, cause every number need to * or / until it is odd. Actually, don't even need to care about the odds, just pick all evens and divide by 2 until they are eventually odd (meaning they cannot be divided anymore). Why no need care about odds? Cause when you divide all even numbers until they are odds, the remaining numbers will be all odds, and we can pick the largest odd number from there for our greedy approach.
+
 ## 1401A: Distance and Axis
 
 00:00 0 ... 4, k = 0, so if b = 2, |(b-0) - (n-b)| = |2-2| = 0. If k = 2, so one side will be unbalanced. Using the original O and n, determine mid point, then add some int to mid point to make it unbalanced. E.g |(2 - 0) - (6 - 2)| = |2 - 4| = 2.

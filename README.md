@@ -82,6 +82,8 @@ for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
 
 ```
 
+3. Specify the appropriate input format for `std` functions like `accumulate(nums.begin(), nums.end(), 0LL)` for a vector array with long long variable type.
+
 ## Solutions
 
 ### Domino Piling
@@ -156,6 +158,10 @@ if ((s[i] != '<') && (s[i + 1] != '>')) {
 ```
 
 Substrings that don't satisfy the above conditions are `><`, `*<` (can be turned into `><`), `>*` (can be turned into `><`) and lastly, `**` (can also be turned into `><`). `<>`, will never result in infinite drift, so just take the max count of `<`, or `>`, whichever appears more frequent and sum it up with count of `*`. Alternatively, just `s.size() - min(count(s.begin(), s.end(), '<'), count(s.begin(), s.end(), '>'))`.
+
+## 1609A: Divide and Multiply 
+
+Pick even numbers and count how many times they can be divided by 2 until they are eventually odd, i.e. 8 / 2 = 4, 4 / 2 = 2, 2 / 2 = 1, so this counts as 3 divisions. Notice that for each divide by 2 operation, the largest element is also multiplied by 2. Hence, when all the array has no even elements left except the largest element (which is definitely odd in this case), just multiply the largest element by $$2^{k}$$ where `k = counts of division by 2`, and return the sum of the whole array as answer.
 
 ## Useful Resources
 
