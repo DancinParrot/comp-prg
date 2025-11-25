@@ -16,7 +16,7 @@ This messy document entails my raw thoughts and ideas when attempting problems. 
 
 00:35 This type of problem requires bounding the naive solution. Similar to 2167D, only requires primes until 53, essentially bounding solution to O(53n) or O(n). How bounding works in this problem?
 
-Since the given sequence is **strictly increasing**, which is different from non-decreasing as there will be no same elements, so a1 < a2 < a3 < a4 < ... < an. For `x < y`, if `x` and `y` even, then remainder confirm even. TBC...
+Since the given sequence is **strictly increasing**, which is different from non-decreasing as there will be no same elements, so a1 < a2 < a3 < a4 < ... < an. For `x < y`, if `x` and `y` even, then remainder confirm even. Solution written [here](https://kaizhe.me/posts/2164b/).
 
 ## 1705B: Mark the Dust Sweeper
 
