@@ -40,26 +40,16 @@ void solve() {
   }
 
   ll c = 0;
-  bool isValid = true;
-  while (isValid) {
-    REP(i, 0, n) {
-      debug(nums[i]);
-      if (nums[i] % 2 == 0) {
-        nums[i] /= 2;
-        c++;
-        break;
-      }
-
-      if (i == n - 1) {
-        isValid = false;
-      }
+  REP(i, 0, n) {
+    while (nums[i] % 2 == 0) {
+      nums[i] /= 2;
+      c++;
     }
   }
 
   sort(nums.begin(), nums.end());
   nums.back() *= pow(2, c);
 
-  debug(nums);
   cout << accumulate(nums.begin(), nums.end(), 0LL) << '\n';
 }
 
