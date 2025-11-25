@@ -2,6 +2,43 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 1401A: Distance and Axis
+
+00:00 0 ... 4, k = 0, so if b = 2, |(b-0) - (n-b)| = |2-2| = 0. If k = 2, so one side will be unbalanced. Using the original O and n, determine mid point, then add some int to mid point to make it unbalanced. E.g |(2 - 0) - (6 - 2)| = |2 - 4| = 2.
+
+00:10 B need not be mid point as seen in 2nd test case where B = 0, or 8. As n = point A, If k > n, have to increase n by k. Cannot be n - k to achieve absolute difference of k as it n - k will be smaller. If k < n, we set n - k, and set b = 0. If abs(diff) == 0, just need to find mid point between 0 and n, if n is odd, then increase n by 1.
+
+00:20 Min moves = 0 only when k = n, so can set b to n; when k = 0 and n is even; What if both n and k are even, like n = 6, k = 2?
+
+0 1 2 3 4 5 6
+      ^
+To make |(n - b) - (b - 0)| = 2, we can make n = 2, and set b = 0, so |(2-0) - (0-0)| = 2.
+
+Counter case where this might not work and the moves may be further minimized?
+
+00:30 If n < k, must make n = k. If n > k, consider this:
+
+After editorial hint:
+(n - b) - (b - 0) = k
+n - 2b = k
+n - k = 2b
+b = (n-k)/2
+
+E.g. if n = 8, k = 4:
+
+0 1 2 3 4 5 6 7 8
+    ^
+
+b = (8-4)/2 = 2, as (8-2) - (2-0) = 6 - 2 = 4
+
+Since 4 is an int, point B can be found, so no moves needed.
+
+What if odd number? n = 7, k = 4
+
+0 1 2 3 4 5 6 7
+
+b = (7-4)/2 = 1.5, so must add one, as point B must be int
+
 ## 2164B: Even Modulo Pair
 
 00:10 Prime numbers? If even % even will be even, if and only if they're not multiples. Like 6 is not a multiple of 8, so 8 % 6 = 2, but 4 is a multiple of 8 so 8 % 4 = 0.
