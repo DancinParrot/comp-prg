@@ -2,6 +2,115 @@
 
 This messy document entails my raw thoughts and ideas when attempting problems. This was inspired from one of Colin Galen's videos as I figured it'd be useful to jot down the process for future reference. Also to know stuff like, how close am I to actually reaching the solution or simply just to see how much improvement have been made. It's always good to keep a history of things.
 
+## 2170B: Addition on a Segment
+
+00:00  What if 1 1 5 1 1, for n = 5
+0 0 0 0 0, l = 1, r = 5
+if all equals? 1 1 1 1 1, must do n times where n = 5, so cannot pick l =
+1, r = 5, ad do 1 time. Must pick number individually.
+
+c == n, all nums present but max(nums) < n? Like n = 5, 1 1 1 1 1
+Or n = 3, 2 2 2, pick l and r for one-by-one
+
+If n = 3, nums = 3 3 3
+
+0 0 0 -> start
+1 1 1
+2 2 2
+3 3 3
+
+If n =3, nums = 2 2 2
+0 0 0 -> start
+0 1 1 where l = 2, r = 3
+1 2 2 where l = 1, r = 3
+2 2 2 where l = 1, r = 1
+
+If n = 3, nums = 1 1 1
+0 0 0 -> start
+1 0 0
+1 1 0
+1 1 1
+
+If n = 4, nums = 2 2 2 2
+0 0 0 0
+1 1 1 1
+2 1 1 1
+2 2 1 1 
+2 2 2 2
+
+nums = 3 3 3 3
+
+0 0 0 0
+1 1 1 1
+2 2 2 2
+3 3 2 2
+3 3 3 3
+
+nums = 3 3 0 0
+
+0 0 0 0
+1 1 0 0
+2 2 0 0
+3 2 0 0
+3 3 0 0 
+
+00:20 Counter test case:
+
+If n = 5, nums = 1 1 1 0 0
+
+0 0 0 0 0
+1 0 0 0 0
+1 1 0 0 0
+1 1 1 0 0
+
+
+If nums = 2 2 2 0 0
+0 0 0 0 0
+1 0 0 0 0
+1 1 0 0 0
+1 1 1 0 0
+2 1 1 0 0
+2 2 2 0 0
+
+## 2170A: Maximum Neighborhood
+
+If n = 4,
+
+n
+2n
+3n
+n * n
+
+(n^2 - 1) + (n^2) + (n^2 - 2) + (3n-1)
+
+If n = 5,
+n
+2n
+3n
+4n
+n * n
+
+11 12 13 14 15
+16 17 18 19 20
+21 22 23 24 25
+
+24 + 19 + 25 + 23 
+
+If n = 6,
+
+19 20 21 22 23 24
+25 26 27 28 29 30
+31 32 33 34 35 36
+
+145
+
+134
+
+If n =18
+
+
+321 322 323 324
+
 ## 1609A: Divide and Multiply
 
 00:00 For an array with all even numbers, the solution is to juts pick the largest and smallest element every step until the smallest element is 1.
