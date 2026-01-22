@@ -84,6 +84,8 @@ for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
 
 3. Specify the appropriate input format for `std` functions like `accumulate(nums.begin(), nums.end(), 0LL)` for a vector array with long long variable type.
 
+4. Be careful when using `std::unordered_map` as hash collision may result in TLE due to $O(n^2)$ per operation instead of the supposed $O(1)$. Hash collision may occur during the hacking phase where specific test cases may be crafted to exploit hash collision resulting in solutions getting hacked or even failing system tests. Refer to [this](https://codeforces.com/blog/entry/62393) blog for solutions to counter this.
+
 ## Solutions
 
 ### Domino Piling
