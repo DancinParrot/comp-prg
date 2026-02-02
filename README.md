@@ -86,7 +86,7 @@ for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
 
 4. Be careful when using `std::unordered_map` as hash collision may result in TLE due to $O(n^2)$ per operation instead of the supposed $O(1)$. Hash collision may occur during the hacking phase where specific test cases may be crafted to exploit hash collision resulting in solutions getting hacked or even failing system tests. Refer to [this](https://codeforces.com/blog/entry/62393) blog for solutions to counter this.
 
-5. If problem statement mentions answer will be too big and requires modulo, ensure modulo is applied to all necessary numbers. For instance in 1879C, one of the answers is $\prod_{i=1}^{k=2⋅10^5}block_{i}\ *\ (n-k)!$, we can perform $\prod_{i=1}^{k=2⋅10^5}(block_{i}\ \ mod\ \ 998244353)$ to keep the number small, likewise for the factorial.
+5. If problem statement mentions answer will be too big and requires modulo, ensure modulo is applied to all necessary numbers. For instance in 1879C, one of the answers is $\prod_{i=1}^{k=2⋅10^5}block_{i}\ *\ (n-k)!$, we can perform $\prod_{i=1}^{k=2⋅10^5}(block_{i}\ mod\ 998244353)$ to keep the number small, likewise for the factorial.
 
 ## Solutions
 
