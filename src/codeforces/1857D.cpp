@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <bits/stdc++.h>
+#include <climits>
 
 #ifndef ONLINE_JUDGE
 #include "debug.h"
@@ -54,7 +55,7 @@ void solve() {
   // have duplicates, so just return the frequency of the max elements along
   // with the 1-based indexing of the strong vertices.
 
-  ll max = -INF;
+  ll max = LLONG_MIN;
   REP(i, 0, n) {
     diff[i] = a[i] - b[i];
     max = std::max(diff[i], max);
