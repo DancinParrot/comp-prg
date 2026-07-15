@@ -88,7 +88,10 @@ for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
 
 5. If problem statement mentions answer will be too big and requires modulo, ensure modulo is applied to all necessary numbers. For instance in 1879C, one of the answers is $\prod_{i=1}^{k=2⋅10^5}block_{i}\ *\ (n-k)!$, we can perform $\prod_{i=1}^{k=2⋅10^5}(block_{i}\ mod\ 998244353)$ to keep the number small, likewise for the factorial.
 
-6. Shell command to test program with multiple test cases: `g++ -std=c++17 -O2 -Wall -Wextra -pedantic kattis-mylla.cpp -o /tmp/kattis-mylla && for t in '1 AAA' '1 HHH' '1 AAHA' '1 HHAH' '1 AHAHA' '1 HAHAH' '2 AAHAAHHHAHAA' '2 HHAHHAAAHAHH' '3 AAAHHHAAAHHHHHH' '2 AHHHAHAAAHAA'; do printf '%-24s -> ' "$t"; /tmp/kattis-mylla <<< "$t"; done; printf '1000 + A repeated 3000 -> '; { printf '1000\n'; printf 'A%.0s' {1..3000}; printf '\n'; } | /tmp/kattis-mylla`
+6. Shell command to test program with multiple test cases: 
+```bash
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic kattis-mylla.cpp -o /tmp/kattis-mylla && for t in '1 AAA' '1 HHH' '1 AAHA' '1 HHAH' '1 AHAHA' '1 HAHAH' '2 AAHAAHHHAHAA' '2 HHAHHAAAHAHH' '3 AAAHHHAAAHHHHHH' '2 AHHHAHAAAHAA'; do printf '%-24s -> ' "$t"; /tmp/kattis-mylla <<< "$t"; done; printf '1000 + A repeated 3000 -> '; { printf '1000\n'; printf 'A%.0s' {1..3000}; printf '\n'; } | /tmp/kattis-mylla
+```
 
 ## Solutions
 
