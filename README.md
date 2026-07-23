@@ -93,6 +93,10 @@ for (size_t i = s.size() - 1; i >= 0; i--) { // underflow when s.size = 0
 g++ -std=c++17 -O2 -Wall -Wextra -pedantic kattis-mylla.cpp -o /tmp/kattis-mylla && for t in '1 AAA' '1 HHH' '1 AAHA' '1 HHAH' '1 AHAHA' '1 HAHAH' '2 AAHAAHHHAHAA' '2 HHAHHAAAHAHH' '3 AAAHHHAAAHHHHHH' '2 AHHHAHAAAHAA'; do printf '%-24s -> ' "$t"; /tmp/kattis-mylla <<< "$t"; done; printf '1000 + A repeated 3000 -> '; { printf '1000\n'; printf 'A%.0s' {1..3000}; printf '\n'; } | /tmp/kattis-mylla
 ```
 
+7. Be careful with divison by zero which results in NaN, may not necessarily crash the program.
+
+8. Compare functions with cross multiplication to avoid dealing with floating point division: $\frac{a}{b}=\frac{c}{d}\ \Rightarrow ad=cb$
+
 ## Solutions
 
 ### Domino Piling
